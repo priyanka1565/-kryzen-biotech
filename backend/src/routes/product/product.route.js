@@ -6,7 +6,8 @@ const verifyToken = require("../../middleware/verify.token");
 
 route.post("/add_product",verifyToken,validateRequestBody,productController.addProduct);
 route.post("/get_product", verifyToken, productController.getProductList);
-route.post("/edit/:id", verifyToken, productController.editProduct);
+route.put("/edit/:id", verifyToken, productController.editProduct);
+route.delete("/delete/:id",verifyToken,productController.deleteProduct)
 
 
 

@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import ProductForm from './pages/ProductForm'
 import Navbar from './pages/Navbar'
 import ProductList from './pages/ProductList'
+import EditProduct from './pages/EditProduct'
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/productf' element={<ProductForm />} />
         <Route path='/productslist' element={<ProductList />} />
-     
+        <Route path="/edit-product" element={<EditProduct />} />
       </Routes>
     </>
   )

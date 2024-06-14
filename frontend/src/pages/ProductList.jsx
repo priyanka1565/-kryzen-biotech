@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
+    const navigate = useNavigate(); // Initialize useNavigate
 
     useEffect(() => {
         fetchProducts();
@@ -46,6 +48,10 @@ const ProductList = () => {
         }
     };
 
+    const handleEditProduct = (productId) => {
+        navigate(`/edit-product`); // Navigate to the edit page for the selected product
+    };
+
     return (
         <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-4xl mx-auto border border-gray-300">
             <h2 className="text-2xl font-bold mb-6 text-center">Product List</h2>
@@ -61,6 +67,12 @@ const ProductList = () => {
                             <p className="text-gray-700 mb-2">Type: {product.product_type}</p>
                             <p className="text-gray-700 mb-2">Code: {product.product_code}</p>
                             <p className="text-gray-700 mb-2">Slug: {product.product_slug}</p>
+                            <button
+                                onClick={() => handleEditProduct(product._id)} // Pass product id to handleEditProduct
+                                className="mt-2 w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200"
+                            >
+                                Edit
+                            </button>
                         </div>
                     ))}
                 </div>

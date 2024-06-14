@@ -48,8 +48,8 @@ const Login = () => {
                         position: toast.POSITION.TOP_RIGHT,
                     });
                     setTimeout(() => {
-                        navigate('/productf');
-                    }, 2000);
+                        navigate("/productf");
+                    }, 2000);  
                 } else {
                     toast.error(data.message || 'Something went wrong!', {
                         position: toast.POSITION.TOP_RIGHT,
